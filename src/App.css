@@ -1,33 +1,48 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Assure que le contenu commence en haut */
+  align-items: center;
+  min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  width: 100%;
+  margin: 0;
+  padding: 20px 0; /* Ajoute un espace en haut */
+  box-sizing: border-box;
+  overflow: auto; /* Permet le défilement si nécessaire */
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 15vmin;  /* La taille du logo s'ajuste dynamiquement en fonction de la hauteur de l'écran */
   pointer-events: none;
 }
 
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 1rem;  /* Espacement dynamique */
+  color: white;
+  font-size: 4vw;  /* La taille du texte s'ajuste en fonction de la largeur de l'écran */
+  flex-grow: 1;  /* Permet à l'en-tête de prendre tout l'espace disponible et d'adapter le contenu */
+}
+
+.App-link {
+  color: #61dafb;
+  font-size: 1rem;  /* Taille de texte plus standard et adaptable */
+  text-decoration: none;
+}
+
+/* Animation du logo uniquement si l'utilisateur préfère des animations */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
+/* Animation du logo */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +50,259 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Adaptation pour les petits écrans */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: 5vw;  /* Taille de texte plus petite et adaptative sur les petits écrans */
+    padding: 1rem;  /* Moins d'espacement sur les petits écrans */
+  }
+
+  .App-logo {
+    height: 25vmin;  /* Réduit la taille du logo sur les petits écrans */
+  }
+}
+
+/* Pour que le body soit également bien adapté */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;  /* Empêche les barres de défilement */
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;  /* Le contenu principal prend l'espace restant pour éviter la coupure en bas */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 1rem;  /* Ajout d'un peu de padding pour ne pas coller aux bords */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /* Permet le défilement vertical */
+}
+
+.LeftSection {
+  width: 100%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.9); /* Couleur neutre */
+  padding: 40px;
+  margin:   30px auto 10px auto; /* Centre horizontalement */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.custom-font {
+  font-family: "Segoe UI", Tahoma, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  color: #000000; /* Facultatif : couleur blanche */
+}
+
+
+.custom-hr {
+  flex: 1; /* La ligne prend tout l'espace disponible */
+  height: 1px; /* Épaisseur de la ligne */
+  background-color: black; /* Couleur de la ligne */
+  border: none; /* Supprime la bordure par défaut */
+  margin: 0; /* Supprime les marges */
+  opacity: 0.8; /* Transparence légère pour un effet esthétique */
+}
+
+
+/* From Uiverse.io by alexroumi */ 
+.button-87 {
+  padding: 15px 25px;
+  border: unset;
+
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 600;
+  font-size: 15px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms;
+  overflow: hidden;
+ }
+ 
+ .button-87::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms
+ }
+ 
+ .button-87:hover {
+  color: #e8e8e8;
+ }
+ 
+ .button-87:hover::before {
+  width: 100%;
+ }
+
+ body {
+  background-image: url('./fondbrettminer.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.logo {
+  display: block;
+  width: 90px; /* Ajustez la largeur selon vos besoins */
+  height: auto; /* Maintient les proportions de l'image */
+  z-index: 100; /* Assurez-vous que le logo est au-dessus des autres éléments */
+  margin: 0; /* Supprime toute marge par défaut */
+  padding: 0; /* Supprime tout remplissage */
+}
+
+
+.textInputWrapper {
+  position: relative;
+  width: 180px;
+  margin: 12px auto; /* Remplace `12px 5px` par `12px auto` */
+  display: flex;
+  align-items: center;
+  --accent-color: #A1B686;
+}
+
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:before,
+.textInputWrapper:after {
+  content: "";
+  left: 0;
+  right: 0;
+  position: absolute;
+  pointer-events: none;
+  bottom: -1px;
+  z-index: 4;
+  width: 100%;
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:focus-within:after {
+  border-bottom: 2px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:after {
+  content: "";
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  will-change: transform;
+  border-bottom: 2px solid var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.textInput::placeholder {
+  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  opacity: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.582);
+}
+
+.textInputWrapper .textInput {
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
+  max-height: 36px;
+  background-color: #252525;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 200ms;
+  transition-property: background-color;
+  color: #e8e8e8;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  width: 100%;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  outline: none;
+}
+
+.textInputWrapper:focus-within .textInput,
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  background-color: #353535;
+}
+
+.textInputWrapper:focus-within .textInput::placeholder {
+  opacity: 0;
+}
+
+.social-icons-container {
+  display: flex;
+  justify-content: center; /* Centrer les icônes horizontalement */
+  align-items: center; /* Centrer les icônes verticalement */
+  gap: 20px; /* Espacement entre les icônes */
+  margin-top: 20px; /* Espacement au-dessus du conteneur */
+}
+
+.telegram-icon svg,
+.twitter-icon svg {
+  width: 30px; /* Taille des logos */
+  height: 30px; /* Taille des logos */
+  fill: #0088cc; /* Couleur du logo Telegram */
+  transition: transform 0.3s ease-in-out;
+}
+
+.twitter-icon svg {
+  fill: #1DA1F2; /* Couleur du logo Twitter */
+}
+
+.telegram-icon:hover svg,
+.twitter-icon:hover svg {
+  transform: scale(1.1); /* Agrandissement au survol */
+}
+
+
+input[type="number"],
+.textInput {
+  -moz-appearance: textfield !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
 }
